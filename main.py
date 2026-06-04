@@ -14,4 +14,7 @@ with open('trades.csv') as csvfile:
 positions = portfolio.calculate_position()
 print(positions)
 
+avg_entry_price = portfolio.average_entry_price()
+print(avg_entry_price)
+
 
