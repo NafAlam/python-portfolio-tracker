@@ -17,4 +17,5 @@ print(positions)
 avg_entry_price = portfolio.average_entry_price()
 print(avg_entry_price)
 
-
+total_pnl = portfolio.realized_pnl()
+print(total_pnl)

@@ -35,6 +35,17 @@ class Portfolio:
 
         return avg_entry_price
 
+    def realized_pnl(self) -> float:
+        avg_entry_price = self.average_entry_price()
+        total_pnl = 0
+
+        for trade in self.trades:
+            if trade.side == "SELL":
+                total_pnl += trade.quantity * (trade.price - avg_entry_price[trade.symbol])
+
+        return total_pnl
+
+
 
 
 
