@@ -1,5 +1,5 @@
 class Trade:
-    def __init__(self, symbol: str, side: str, quantity: int, price: int):
+    def __init__(self, symbol: str, side: str, quantity: int, price: float):
         self.symbol = symbol
         self.side = side
         self.quantity = quantity
