@@ -1,4 +1,4 @@
-from trade import Trade
+from portfolio_tracker.trade import Trade
 from collections import defaultdict
 
 class Portfolio:

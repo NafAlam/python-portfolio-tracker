@@ -1,6 +1,6 @@
 import csv
 from typing import Iterator
-from trade import Trade
+from portfolio_tracker.trade import Trade
 
 class Parser:
     def load_trades(self, file_name: str) -> Iterator[Trade]:

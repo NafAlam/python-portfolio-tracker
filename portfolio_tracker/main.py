@@ -1,6 +1,6 @@
 import sys
-from portfolio import Portfolio
-from parser import Parser
+from portfolio_tracker.portfolio import Portfolio
+from portfolio_tracker.parser import Parser
 
 def main() -> None:
     portfolio = Portfolio()
