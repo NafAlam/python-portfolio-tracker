@@ -36,14 +36,22 @@ class Portfolio:
         return avg_entry_price
 
     def realized_pnl(self) -> float:
-        avg_entry_price = self.average_entry_price()
+        trade_quantity = defaultdict(int)
+        trade_cost = defaultdict(float)
         total_pnl = 0
 
         for trade in self.trades:
-            if trade.side == "SELL":
-                total_pnl += trade.quantity * (trade.price - avg_entry_price[trade.symbol])
+            if trade.side == "BUY":
+                trade_quantity[trade.symbol] += trade.quantity
+                trade_cost[trade.symbol] += trade.quantity * trade.price
+            else:
+                curr_avg_cost = trade_cost[trade.symbol] / trade_quantity[trade.symbol]
+                total_pnl += trade.quantity * (trade.price - curr_avg_cost)
+                trade_quantity[trade.symbol] -= trade.quantity
+                trade_cost[trade.symbol] -= trade.quantity * curr_avg_cost
 
         return total_pnl
+
 
 
 

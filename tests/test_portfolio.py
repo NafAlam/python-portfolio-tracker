@@ -62,3 +62,15 @@ def test_realized_pnl():
     )
 
     assert portfolio.realized_pnl() == 50.0
+
+
+def test_realized_pnl_ignores_buys_after_sell():
+    portfolio = make_portfolio(
+        [
+            Trade("AAPL", "BUY", 10, 100.0),
+            Trade("AAPL", "SELL", 5, 110.0),
+            Trade("AAPL", "BUY", 10, 200.0),
+        ]
+    )
+
+    assert portfolio.realized_pnl() == 50.0
